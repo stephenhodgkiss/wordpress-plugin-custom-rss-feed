@@ -2,6 +2,16 @@
 
 # Custom RSS Feed Plugin for WordPress
 
+Description:
+
+Creates a custom RSS feed of the latest 3 posts that can be accessed at https://yourdomain.com/customfeed
+
+Runs once when activated and then every 12 hours.
+
+Disables all other RSS feeds.
+
+---------------
+
 Installation:
 
 Clone the repo using git clone https://github.com/stephenhodgkiss/wordpress-plugin-custom-rss-feed.git OR download the zip file.
