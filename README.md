@@ -6,7 +6,7 @@ Description:
 
 Creates a custom RSS feed of the latest 3 posts that can be accessed at yourdomain.com/customfeed e.g. https://stevehodgkiss.net/customfeed
 
-The RSS feed can be used in services such as at IFTT.com, that reads it for the source of an Applet.
+The RSS feed can be used in services such as at IFTTT.com, that reads it for the source of an Applet.
 
 Runs once when activated and then every 12 hours.
 
