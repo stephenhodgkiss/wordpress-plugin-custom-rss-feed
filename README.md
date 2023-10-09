@@ -23,3 +23,7 @@ If cloned, compress the folder into a zip file.
 Upload the plugin folder to the /wp-content/plugins/ directory OR upload the zip file via the WordPress admin panel under PLUGINS > Add New > Upload Plugin.
 
 Activate the plugin through the 'Plugins' menu in WordPress.
+
+Validation:
+
+After activation, I suggest you validate the new RSS feed, to make ensure it is correctly formatted: See https://validator.w3.org/feed/
