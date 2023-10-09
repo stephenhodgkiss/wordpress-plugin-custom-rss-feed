@@ -26,7 +26,7 @@ function custom_feed_generate_rss2()
 
     // Create the RSS2 XML
     echo '<?xml version="1.0" encoding="' . get_option('blog_charset') . '"?' . '>' . PHP_EOL;
-    echo '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">' . PHP_EOL;
+    echo '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">' . PHP_EOL;
     echo '<channel>' . PHP_EOL;
     echo '<title>' . get_bloginfo('name') . '</title>' . PHP_EOL;
     echo '<link>' . get_bloginfo('url') . '</link>' . PHP_EOL;
@@ -55,10 +55,6 @@ function custom_feed_generate_rss2()
         // remove &hellip; from the end of the excerpt
         $excerpt = preg_replace('/&hellip;/', ' ...', $excerpt);
 
-        $featured_image = '<br /><br /><img src="' . $image . '" alt="' . $post['post_title'] . '" />';
-        // encode the featured image
-        $featured_image = htmlspecialchars($featured_image, ENT_XML1, 'UTF-8');
-
         // get the permalink, title, date and excerpt for the post
         $permalink = get_permalink($postID);
         $title = get_the_title($postID);
@@ -72,6 +68,10 @@ function custom_feed_generate_rss2()
         echo '<link>' . $permalink . '</link>' . PHP_EOL;
         echo '<pubDate>' . $postDate . '</pubDate>' . PHP_EOL;
         echo '<description>' . $excerpt . '</description>' . PHP_EOL;
+        
+        if ($image) {
+            echo '<content:encoded><![CDATA[<img src="' . $image . '" alt="' . $title . '" width="800" />]]></content:encoded>';
+        }
 
         echo '</item>' . PHP_EOL;
     }
