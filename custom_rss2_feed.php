@@ -42,6 +42,8 @@ function custom_feed_generate_rss2()
     );
     $recent_posts = wp_get_recent_posts($args);
 
+    $readMore = ' Click the link or image below to read more';
+
     // Loop through the recent posts and add them to the feed
     foreach ($recent_posts as $post) {
         $postID = $post['ID'];
@@ -68,9 +70,9 @@ function custom_feed_generate_rss2()
         echo '<link>' . $permalink . '</link>' . PHP_EOL;
         echo '<pubDate>' . $postDate . '</pubDate>' . PHP_EOL;
         echo '<description>' . $excerpt . '</description>' . PHP_EOL;
-        
+
         if ($image) {
-            echo '<content:encoded><![CDATA[<img src="' . $image . '" alt="' . $title . '" width="800" />]]></content:encoded>';
+            echo '<content:encoded><![CDATA[<img src="' . $image . '" alt="' . $title . '" width="800" /><br /><br />' . $excerpt . $readMore . ']]></content:encoded>';
         }
 
         echo '</item>' . PHP_EOL;
